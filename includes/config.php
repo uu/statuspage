@@ -23,5 +23,5 @@ $config['footer_links'] = array( //this is optional, delete this to get rid of a
 );
 $config['textarea'] = array(
 	'heading' => 'Помощь',
-	'text' => 'Необходима помощь или консультация? Напишите нам письмо на почтовый адрес <a href="mailto:support@megaplan.ru">support@megaplan.ru</a>.';
+	'text' => 'Необходима помощь или консультация? Напишите нам письмо на почтовый адрес <a href="mailto:support@domain.ru">support@domain.ru</a>.';
 $config['smarty_debug'] = false;
