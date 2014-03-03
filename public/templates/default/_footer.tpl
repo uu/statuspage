@@ -4,14 +4,14 @@
 				{if file_exists('templates/default/images/logo_square.jpg')}
 				<img src="templates/default/images/logo_square.jpg" />
 				{/if}
-				<div class="text">
+				<!-- <div class="text">
 					<ul>
 						{foreach from=$footer_links item=link}
 						<li><a href="{$link.url}">{$link.title}</a></li>
 						{/foreach}
 						<li><iframe src="github-buttons/github-btn.html?user=limestonenetworks&repo=statuspage&type=watch"  allowtransparency="true" frameborder="0" scrolling="0" width="62px" height="20px"></iframe></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
