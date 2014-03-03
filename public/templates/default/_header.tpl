@@ -27,8 +27,7 @@
 				<h1>Your logo here</h1>
 				{/if}
 				<div id="title">
-					<h2>Network Status</h2>
-					<div id="lastupdate">as of {$smarty.now|date_format:"%I:%M %p"} on {$smarty.now|date_format:"%D"}</div>
+					<div id="lastupdate">Обновлено {$smarty.now|date_format:"%I:%M %p"} on {$smarty.now|date_format:"%D"}</div>
 					<div id="autorefresh"><label for="autorefreshbox" id="refreshlabel">Автообновление</label><input type="checkbox" id="autorefreshbox" /></div>
 				</div>
 			</div>
