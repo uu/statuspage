@@ -15,14 +15,13 @@ $config['twitter_oauth_token_secret'] = '';
 $config['default_services'] = array('Network', 'One Portal', 'Filtering System', 'Name Servers', 'Storage Servers'); //only used during database initialization
 $config['default_facilities'] = array('Dallas, TX Data Center'); //only used during database initialization
 
-$config['pagetitle'] = 'Network Status';
+$config['pagetitle'] = '';
 $config['footer_links'] = array( //this is optional, delete this to get rid of all footer links
 	array('title' => 'Dedicated Servers', 'url' => 'http://www.example.com'),
 	array('title' => 'Resell Dedicated Servers', 'url' => 'http://www.example.com/partners/resellers.html'),
 	array('title' => 'Contact Us', 'url' => 'http://www.example.com/home/contactus.html')
 );
 $config['textarea'] = array(
-	'heading' => 'Get Support',
-	'text' => 'Having service issues? In the event that our ticketing system is offline we will monitor emails sent to <a href="mailto:support@example.com">support@example.com</a>. Please be advised that unless our ticketing system is inaccessable this mail box is not actively monitored and you should <a href="https://example.com/support/newticket.html" target="_blank">open a ticket</a> for support.'
-);
+	'heading' => 'Помощь',
+	'text' => 'Необходима помощь или консультация? Напишите нам письмо на почтовый адрес <a href="mailto:support@megaplan.ru">support@megaplan.ru</a>.';
 $config['smarty_debug'] = false;
