@@ -4,7 +4,7 @@ $(document).ready(function() {
 		height: 480,
 		width: 350,
 		modal: true,
-		title: "Report an Incident",
+		title: "Завести инцидент",
 		buttons: {
 			"Add Incident": function() {
 				$("#addincidentform").submit();
@@ -63,5 +63,5 @@ function setRefresh() {
 function clearRefresh() {
 	$("#autorefreshbox").prop("checked", false);
 	clearInterval(countdown);
-	$("#refreshlabel").html('Auto Refresh');
+	$("#refreshlabel").html('Автообновление');
 }

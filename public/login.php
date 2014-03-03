@@ -7,7 +7,7 @@
 		$login = $auth->login($_POST['username'], $_POST['password']);
 
 		if ($login) header('Location: index.php');
-		$smarty->assign('error', 'Invalid username or password');
+		$smarty->assign('error', 'Неверное имя пользователя или пароль');
 	}
 
 	$smarty->display('_header.tpl');

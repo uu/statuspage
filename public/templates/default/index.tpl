@@ -4,7 +4,7 @@
 			<div class="datacenter">
 				<div class="dchead">
 					<h3>{$facility.friendly_name}</h3>
-					<a href="https://twitter.com/{$twitter_handle}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{$twitter_handle}</a>
+					<a href="https://twitter.com/{$twitter_handle}" class="twitter-follow-button" data-show-count="false" data-size="large">Следить @{$twitter_handle}</a>
 				</div>
 
 				<table class="services">
@@ -24,7 +24,7 @@
 
 				<div class="rightstuff">
 					<div class="uhHuh">
-						<div class="title">Scheduled Maintenance</div>
+						<div class="title">Запланировано</div>
 						{if $facility.scheduled|@count > 0}
 						<ul class="maintschedule">
 							{foreach from=$facility.scheduled key=date item=events}<li>{$date}
@@ -32,12 +32,12 @@
 									{foreach from=$events item=event}<li>
 										<span class="time">{$event.timeopened|date_format:"%I:%M %p %Z"}</span>
 										{$event.title|truncate:26:'...':true}{if $event.maintenancedesc}
-										<span class="readmore"><a href="#" id="readmore-{$event.id}">Read More</a></span>{/if}
+										<span class="readmore"><a href="#" id="readmore-{$event.id}">Подробности</a></span>{/if}
 									{/foreach}</li>
 								</ul>
 							</li>
 							{/foreach}
-						{else}<p>There is no maintenance scheduled at this time.</p>{/if}
+						{else}<p>Технические работы не запланированы.</p>{/if}
 					</div>
 					{if isset($textarea)}
 					<div class="uhHuh">
@@ -68,12 +68,12 @@
 								<span class="message">{$update.message}</span>
 							</div>
 							{/foreach}{/if}
-							{if $smarty.session.auth.id}<p><form action="" method="post" class="microupdate"><input type="text" name="update" class="updatebox" id="updateto{$incident.id}" /><p class="posttotwitter"><input type="checkbox" name="twitter" class="micrototwitter" checked="CHECKED" /> Post to Twitter</p><input type="hidden" name="incidentid" value="{$incident.id}"></form>{/if}
+							{if $smarty.session.auth.id}<p><form action="" method="post" class="microupdate"><input type="text" name="update" class="updatebox" id="updateto{$incident.id}" /><p class="posttotwitter"><input type="checkbox" name="twitter" class="micrototwitter" checked="CHECKED" /> Отправить также в Twitter</p><input type="hidden" name="incidentid" value="{$incident.id}"></form>{/if}
 						</div>
 					</div>
 					{/foreach}
 					{foreachelse}
-						<p>No recent incidents were found.</p>
+						<p>Всё хорошо. Никаких инцидентов не зарегистрированно</p>
 					{/foreach}
 				</div>
 			</div>
@@ -89,30 +89,30 @@
 				<select name="facilities_id" id="ni_facilities_id">
 					{foreach from=$facilities item=facility}<option value="{$facility.id}">{$facility.friendly_name}</option>{/foreach}
 				</select>
-				<label for="timeopened">Date/Time of Incident:</label>
+				<label for="timeopened">Время инцидента:</label>
 				<input type="text" name="timeopened" id="timeopened" value="{$smarty.now|date_format:"%m/%d/%Y %I:%M %p"}" />
-				<label for="title">Short Title:</label>
+				<label for="title">Заголовок:</label>
 				<input type="text" name="title" id="title" />
 				<div id="maintfields">
-					<label for="maintenancedesc">Full Description of Maintenance:</label>
+					<label for="maintenancedesc">Суть планируемого:</label>
 					<textarea id="maintenancedesc" name="maintenancedesc"></textarea>
 				</div>
-				<label for="severity">Severity:</label>
+				<label for="severity">Проблема:</label>
 				<select name="severity" id="severity">
-					<option>warning</option>
-					<option>offline</option>
+					<option value='warning'>предупреждение</option>
+					<option value='offline'>оффлайн</option>
 				</select>
 				<label for="status">Status:</label>
 				<select name="status" id="status">
-					<option>Investigating</option>
-					<option>Implementing Fix</option>
-					<option>Resolved</option>
+					<option value='Investigating'>Продолжается</option>
+					<option value='Implementing Fix'>Исправляется...</option>
+					<option value='Resolved'>Исправлена</option>
 				</select>
 				<div id="hidemaintenance">
-					<label for="initialupdate">Initial Update:</label>
+					<label for="initialupdate">Начальный текст:</label>
 					<input type="text" name="update" id="initialupdate" />
 				</div>
-				<label for="incidenttwitter">Send to Twitter:</label>
+				<label for="incidenttwitter">Отправить в Twitter:</label>
 				<input type="checkbox" name="twitter" id="incidenttwitter" checked="CHECKED" />
 		</fieldset>
 		</form>
@@ -156,7 +156,7 @@
 <div id="readmorebox"></div>
 {foreach from=$facilities item=facility}{if $facility.scheduled|@count > 0}
 	<script type="text/javascript">
-		{literal}$("#readmorebox").dialog({ autoOpen: false, title: 'Maintenance Description', width: 500, height: 300 });{/literal}
+		{literal}$("#readmorebox").dialog({ autoOpen: false, title: 'Запланированные работы', width: 500, height: 300 });{/literal}
 {foreach from=$facility.scheduled key=day item=events}{foreach from=$events item=event}
 		$("#readmore-{$event.id}").click(function(){literal}{{/literal}
 			$("#readmorebox").dialog('close');
