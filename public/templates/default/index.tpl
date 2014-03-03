@@ -58,7 +58,7 @@
 						<div class="incidentheader">
 							<span id="changeseverity-{$incident.id}"><img src="templates/default/images/ico_{$incident.severity}_small.gif" alt="{$incident.severity}" /></span>
 							<span class="title" id="changetitle-{$incident.id}">{$incident.title}</span>
-							<div class="status"><strong>Status:</strong> <span id="changestatus-{$incident.id}">{$incident.status}</span></div>
+							<div class="status"><strong>Статуc:</strong> <span id="changestatus-{$incident.id}">{$incident.status}</span></div>
 						</div>
 						
 						<div class="updates">
@@ -73,7 +73,7 @@
 					</div>
 					{/foreach}
 					{foreachelse}
-						<p>Всё хорошо. Никаких инцидентов не зарегистрированно</p>
+						<p>Всё хорошо. Никаких инцидентов не зарегистрированно.</p>
 					{/foreach}
 				</div>
 			</div>
@@ -102,7 +102,7 @@
 					<option value='warning'>предупреждение</option>
 					<option value='offline'>оффлайн</option>
 				</select>
-				<label for="status">Status:</label>
+				<label for="status">Статус:</label>
 				<select name="status" id="status">
 					<option value='Investigating'>Продолжается</option>
 					<option value='Implementing Fix'>Исправляется...</option>

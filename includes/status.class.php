@@ -177,8 +177,8 @@ class Status {
 		while ($entry = $results->fetchArray(SQLITE3_ASSOC)) {
 			$date = date("F j, Y", $entry['timeopened']);
 
-			if ($date == date("F j, Y", time())) $date = 'Today';
-			else if ($date == date("F j, Y", strtotime("yesterday"))) $date = 'Yesterday';
+			if ($date == date("F j, Y", time())) $date = 'Сегодня';
+			else if ($date == date("F j, Y", strtotime("yesterday"))) $date = 'Вчера';
 
 			$entry['updates'] = $this->getUpdates($entry['id']);
 
@@ -199,8 +199,8 @@ class Status {
 		while ($entry = $results->fetchArray(SQLITE3_ASSOC)) {
 			$date = date("F j, Y", $entry['timeopened']);
 
-			if ($date == date("F j, Y", time())) $date = 'Today';
-			else if ($date == date("F j, Y", strtotime("tomorrow"))) $date = 'Tomorrow';
+			if ($date == date("F j, Y", time())) $date = 'Сегодня';
+			else if ($date == date("F j, Y", strtotime("tomorrow"))) $date = 'Завтра';
 
 			$incidents[$date][] = $entry;
 		}
@@ -247,8 +247,8 @@ class Status {
 		for ($i=0; $i < $days; $i++) {
 			$date = date($dateformat, strtotime("-{$i} days"));
 			$shortdate = date($shortdateformat, strtotime("-{$i} days"));
-			if ($date == date($dateformat, time())) $date = $shortdate = 'Today';
-			if ($date == date($dateformat, strtotime("yesterday"))) $date = $shortdate = 'Yesterday';
+			if ($date == date($dateformat, time())) $date = $shortdate = 'Сегодня';
+			if ($date == date($dateformat, strtotime("yesterday"))) $date = $shortdate = 'Вчера';
 
 			if ($shortdate) { $displaydate = $shortdate; }
 				else { $displaydate = $date; }
