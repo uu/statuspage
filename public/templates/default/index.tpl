@@ -30,7 +30,7 @@
 							{foreach from=$facility.scheduled key=date item=events}<li>{$date}
 								<ul>
 									{foreach from=$events item=event}<li>
-										<span class="time">{$event.timeopened|date_format:"%I:%M %p %Z"}</span>
+										<span class="time">{$event.timeopened|date_format:"%H:%M %d/%m"}</span>
 										{$event.title|truncate:26:'...':true}{if $event.maintenancedesc}
 										<span class="readmore"><a href="#" id="readmore-{$event.id}">Подробности</a></span>{/if}
 									{/foreach}</li>
@@ -64,7 +64,7 @@
 						<div class="updates">
 							{if $incident.updates|@count > 0}{foreach from=$incident.updates item=update}
 							<div class="update">
-								<span class="timestamp">{$update.timeadded|date_format:"%I:%M %p %Z"}</span>
+								<span class="timestamp">{$update.timeadded|date_format:"%H:%M %d/%m"}</span>
 								<span class="message">{$update.message}</span>
 							</div>
 							{/foreach}{/if}
@@ -90,7 +90,7 @@
 					{foreach from=$facilities item=facility}<option value="{$facility.id}">{$facility.friendly_name}</option>{/foreach}
 				</select>
 				<label for="timeopened">Время инцидента:</label>
-				<input type="text" name="timeopened" id="timeopened" value="{$smarty.now|date_format:"%m/%d/%Y %I:%M %p"}" />
+				<input type="text" name="timeopened" id="timeopened" value="{$smarty.now|date_format:"%H:%M %d/%m/%Y"}" />
 				<label for="title">Заголовок:</label>
 				<input type="text" name="title" id="title" />
 				<div id="maintfields">
@@ -160,7 +160,7 @@
 {foreach from=$facility.scheduled key=day item=events}{foreach from=$events item=event}
 		$("#readmore-{$event.id}").click(function(){literal}{{/literal}
 			$("#readmorebox").dialog('close');
-			$("#readmorebox").html('<p>{$event.timeopened|date_format:"%m/%d/%Y %I:%M %p %Z"}<br /><strong>{$event.title|addslashes}</strong></p></p><p>{$event.maintenancedesc|htmlspecialchars|nl2br|replace:"\n":''|replace:"\r":''|addslashes|trim}</p>');
+			$("#readmorebox").html('<p>{$event.timeopened|date_format:"%H:%M %d/%m"}<br /><strong>{$event.title|addslashes}</strong></p></p><p>{$event.maintenancedesc|htmlspecialchars|nl2br|replace:"\n":''|replace:"\r":''|addslashes|trim}</p>');
 			$("#readmorebox").dialog('open');
 			return false;
 		{literal}}{/literal});
